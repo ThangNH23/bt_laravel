@@ -48,5 +48,11 @@ Route::get('tinhtong', function() {
 });
 Route::post('tinhtong', [App\Http\Controllers\tongController::class, 'tinhtong']);
 
+
 Route::get('area',[App\Http\Controllers\quadrangeController::class, 'computeArea']);
 Route::post('area',[App\Http\Controllers\quadrangeController::class, 'computeArea']);
+
+Route::get('validate',[App\Http\Controllers\validateController::class, 'index']);
+Route::post('validate',[App\Http\Controllers\validateController::class, 'xuly']);
+
+Route::get('/master', [App\Http\Controllers\PageController::class,'getIndex']);

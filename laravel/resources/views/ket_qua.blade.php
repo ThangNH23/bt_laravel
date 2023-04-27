@@ -4,7 +4,7 @@
 </head>
 <body>
     <h1>Calculator</h1>
-    <form method="POST" action="">
+    <form method="POST">
         @csrf 
         <label for="firstNumber">First number:</label>
         <input type="number" name="firstNumber" id="firstNumber"><br><br>

@@ -16,7 +16,7 @@
     }
 </style>
 
-   <h2> Tinh tong</head>
+   <h2> Tinh tong </head>
     <body>
         <form method="post">
             @csrf 
@@ -28,7 +28,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Tính</button>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="kết quả" disabled="" value="<?php if(isset($sum)) echo $sum; ?>">
+                <input type="text" class="form-control" placeholder="kết quả" value="<?php if(isset($sum)) echo $sum; ?>">
             </div>
         </form>
     </body>

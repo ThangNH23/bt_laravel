@@ -12,7 +12,7 @@ class caculatorController extends Controller
     function tinh(Request $request) {
         $first = $request -> input ('first_number');
         $second = $request -> input ('second_number');
-        $tong = $request -> input ('operator');
+        $tong = $request -> input ('Operator');
 
         switch($tong) {
             case '+':
