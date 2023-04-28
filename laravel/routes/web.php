@@ -2,6 +2,7 @@
 
 // use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,15 @@ Route::post('area',[App\Http\Controllers\quadrangeController::class, 'computeAre
 Route::get('validate',[App\Http\Controllers\validateController::class, 'index']);
 Route::post('validate',[App\Http\Controllers\validateController::class, 'xuly']);
 
+
 Route::get('/master', [App\Http\Controllers\PageController::class,'getIndex']);
+
+
+Route::get('/',function() {
+    Schema::create ('loaisanpham',function($table) {
+        $table -> increments('id');
+        $table -> string ('name',200);
+    });
+
+    echo "đã thực hiện lệnh tạo bảng thành công";
+});
