@@ -1,8 +1,12 @@
 <?php
 
 // use Illuminate\Support\Facades\App;
+
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +74,21 @@ Route::get('/db',function() {
 });
 
 
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/newTrangchu', function () {
+    return redirect('/trangchu');
+}) ;
+
+Route::get('/trangchu', [App\Http\Controllers\PageController::class, 'getIndex']);
+Route::get('/type/{id}', [App\Http\Controllers\PageController::class, 'getLoaiSP']);
+Route::get('/detail/{id}', [App\Http\Controllers\PageController::class, 'getDetail']);
+
+Route::get('/contact',[App\Http\Controllers\PageController::class, 'getContact']);
+Route::get('/about', [App\Http\Controllers\PageController::class, 'getAbout']);
+
+Route::get('loai-san-pham/{type}',[
+    'as'=>'loaisanpham',
+    'uses'=>'App\Http\Controllers\PageController@getLoaiSp'
+]);
