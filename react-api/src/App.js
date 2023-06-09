@@ -1,10 +1,9 @@
 import './App.css';
-import ShowProduct from './components/ShowProduct';
-import "bootstrap/dist/css/bootstrap.css";
+import My_Route from './component/Route';
 function App() {
   return (
-    <div className="App">
-      <ShowProduct/>
+    <div >
+      <My_Route/>
     </div>
   );
 }

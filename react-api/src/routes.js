@@ -1,15 +1,15 @@
-import ShowProduct from "./components/ShowProduct";
+import ShowAPILazada from "./components/ShowAPILazada";
 
 const routes = [
     {
         path:"/",
         exact : true,
-        main : () => <ShowProduct/>,
+        main : () => <ShowAPILazada/>,
     },
     {
         path : "/admin",
         exact : true,
-        main : () => <ShowProduct/>,
+        main : () => <ShowAPILazada/>,
     },
 ];
 

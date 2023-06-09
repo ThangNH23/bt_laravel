@@ -8,6 +8,7 @@ use App\Models\slide;
 use App\Models\bill_detail;
 use App\Models\type_products;
 use Illuminate\Http\Request;
+use App\Models\lazada;
 
 class PageController extends Controller
 {
@@ -108,9 +109,6 @@ class PageController extends Controller
         $product->save();
         return $this->getIndexAdmin();
     }
-
-    
-
 
 public function postAdminDelete($id){
     $product = products::find($id);
