@@ -35,4 +35,10 @@ Route::get('/get-products/{id}', [App\Http\Controllers\APILazadaController::clas
 Route::post('/add-products',[App\Http\Controllers\APILazadaController::class,'addProduct']);								
 Route::delete('/delete-products/{id}',[App\Http\Controllers\APILazadaController::class,'deleteProduct']);								
 Route::put('/edit-products/{id}',[App\Http\Controllers\APILazadaController::class,'editProduct']);														
-Route::post('/upload-image',[App\Http\Controllers\APILazadaController::class,'uploadImage']);								
+Route::post('/upload-images',[App\Http\Controllers\APILazadaController::class,'uploadImage']);	
+
+//api product1
+
+// Route::get('/getProduct_one',[App\Http\Controllers\API_Product1_Controller::class,'getProduct1']);
+// Route::post('/add-product_one',[App\Http\Controllers\API_Product1_Controller::class,'addproduct1']);
+// Route::post('/upload-image',[App\Http\Controllers\API_Product1_Controller::class,'uploadImage']);							

@@ -17,7 +17,7 @@ export default class Product extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://127.0.0.1:8000/api/getProduct_one")
+      .get("http://localhost:8000/api/get-products")
       .then((response) => {
         this.setState({ product: response.data });
       })
@@ -34,12 +34,14 @@ export default class Product extends React.Component {
                 <div class="col">
                   <div className="containers">
                   <div class="product-card">
-                      <div class="badge">Neu</div>
+                      <div class="badge">HOT</div>
                       <div class="product-tumb">
-                        <img src={`http://localhost:8000/source/image/product_one/${product.image}`}></img>
+                        <img src={`./image/${product.image}`}></img>
                       </div>
                       <div class="product-details">
                         <h4>{product.name}</h4>
+                        <h4>${product.price}</h4>
+
                         <p>{product.description}</p>
                         <div class="product-bottom-details">
                           <div class="product-links">

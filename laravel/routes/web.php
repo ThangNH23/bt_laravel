@@ -105,3 +105,22 @@ Route::get('/admin',[App\Http\Controllers\PageController::class,'getIndexAdmin']
     Route::post('/admin-delete/{id}',[App\Http\Controllers\PageController::class,'postAdminDelete']);
     
     Route::get('admin-export',[App\Http\Controllers\PageController::class,'exportAdminProduct'])->name('export');
+
+
+    //register and login
+
+    // Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
+
+    // Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout']);
+
+    Route::get('/register', function () {						
+        return view('user.register');						
+        });						
+    
+    Route::post('/register',[App\Http\Controllers\UserController::class,'Register']);
+    
+    Route::get('/login', function () {						
+         return view('user.login');						
+        });						
+             
+    Route::post('/login',[App\Http\Controllers\UserController::class,'Login']);

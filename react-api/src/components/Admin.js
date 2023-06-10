@@ -14,7 +14,7 @@ class Admin extends React.Component {
   }
 
   async componentDidMount() {
-    await axios.get("http://localhost:8000/api/getProduct_one").then((res) => {
+    await axios.get("http://localhost:8000/api/get-products").then((res) => {
       this.setState(() => ({ products: res.data }));
     });
   }
@@ -52,20 +52,20 @@ class Admin extends React.Component {
 
     if ($("#inputImage").val().split("\\")[2]) {
       await axios
-        .post(`http://localhost:8000/api/upload-image`, fd)
+        .post(`http://localhost:8000/api/upload-image/`, fd)
         .then((res) => {});
     }
 
     await axios
-      .post("http://localhost:8000/api/add-product_one", {
+      .post("http://localhost:8000/api/add-products", {
         name: $("#inputName").val(),
-        description: $("#inputDescription").val(),
+        shop_owner: $("#inputShopOwner").val(),
         price: $("#inputPrice").val(),
         image: $("#inputImage").val().split("\\")[2],
       })
       .then((res) => {
         $("#inputImage").val("");
-        alert("Thêm thành công");
+        alert("sản phẩm của bạn đã được thêm");
         $("#closeModalAddBtn").click();
         this.componentDidMount();
         console.log("add sản phẩm", res.data);
@@ -91,7 +91,7 @@ class Admin extends React.Component {
       cell: (row) => (
         <img
           data-tag="allowRowEvents"
-          src={`http://localhost:8000/source/image/product_one/${row.image}`}
+          src={`./image/${row.image}`}
           alt="preview"
           style={{ width: "100px" }}
         />
@@ -104,13 +104,7 @@ class Admin extends React.Component {
       wrap: true,
       compact: true,
     },
-    {
-      name: "Description",
-      selector: "description",
-      sortable: true,
-      wrap: true,
-      compact: true,
-    },
+    
     {
       name: "Price",
       selector: "price",
@@ -187,7 +181,7 @@ class Admin extends React.Component {
                       <input
                         type="text"
                         className="form-control"
-                        name="inputName"
+                        name="name"
                         id="inputName"
                         placeholder="Enter name"
                         required
@@ -199,7 +193,7 @@ class Admin extends React.Component {
                         type="number"
                         min={10000}
                         className="form-control"
-                        name="inputPrice"
+                        name="price"
                         id="inputPrice"
                         placeholder="Enter price"
                         required
@@ -212,7 +206,7 @@ class Admin extends React.Component {
                       <input
                         type="file"
                         className="form-control-file"
-                        name="inputImage"
+                        name="image"
                         id="inputImage"
                         onChange={(e) => this.handleChange(e.target.files)}
                         required
@@ -228,10 +222,11 @@ class Admin extends React.Component {
                       {this.previewImage()}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="inputDescription">Description</label>
+                      <label htmlFor="inputShopOwner">shop_owner</label>
                       <input
                         type="text"
-                        name="inputDescription"
+                        name="shop_owner"
+                        id="inputShopOwner"
                         className="form-control"
                         defaultValue={""}
                       />
@@ -254,7 +249,7 @@ class Admin extends React.Component {
             data-toggle="modal"
             data-target="#modelAddProduct"
             className="btn btn-primary"
-            style={{ width: 80 }}
+            style={{ width: 100 }}
           >
             Add
           </button>
