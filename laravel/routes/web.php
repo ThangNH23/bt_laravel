@@ -5,6 +5,7 @@
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+use App\Http\Controllers;
 
 
 
@@ -122,5 +123,13 @@ Route::get('/admin',[App\Http\Controllers\PageController::class,'getIndexAdmin']
     Route::get('/login', function () {						
          return view('user.login');						
         });						
+
+    Route::get('/logout', 'App\Http\Controllers\UserController@Logout');
              
     Route::post('/login',[App\Http\Controllers\UserController::class,'Login']);
+
+
+    // giỏ hàng
+
+    Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');											
+Route::get('del-cart/{id}', [App\Http\Controllers\PageController::class, 'getDelItemCart'])->name('xoagiohang');

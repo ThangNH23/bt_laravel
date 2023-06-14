@@ -25,17 +25,15 @@ class UserController extends Controller
             Session::put('user', $user);
             echo '<script> alert("Đăng nhập thành công");window.location.assign("master");</script>';
         } else {
-            echo '<script> alert("Đăng nhập thất bại");window.location.assign("login");</script>';
+            echo '<script> alert("Đăng nhập thất bại! Vui lòng đăng nhập lại");window.location.assign("login");</script>';
         }
     }
 
-    public function logout() 
-    {
+    public function Logout(){
         Session::forget('user');
         Session::forget('cart');
-        return redirect('/master');
+        return redirect('/trangchu');
     }
-
     public function Register(Request $request)
     {
         $input = $request->validate([
